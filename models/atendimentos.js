@@ -63,7 +63,7 @@ class Atendimento {
             const atendimento = resultados[0]
             const cpf = atendimento.cliente
             if(erro) {
-                res.status(400).json(erro)
+                res.status(400).json(erro) 
             } else {
                 const {data} = await axios.get(`http://localhost:8082/${cpf}`)
                 atendimento.cliente = data
