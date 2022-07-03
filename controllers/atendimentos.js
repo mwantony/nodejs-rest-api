@@ -32,6 +32,11 @@ module.exports = app => {
         const valores = req.body
 
         Atendimento.altera(id, valores, res)
+            .then(atendimentoAtualizado => {
+                res.status(200).json(atendimentoAtualizado)
+            }).catch((erros => {
+                res.status(400).json(erros)
+            }))
     })
 
     app.delete('/atendimentos/:id', (req, res) => {
